@@ -17,34 +17,37 @@
     <junit.version>5.9.2</junit.version>
   </properties>
 
-  <dependencies>
-<dependency>
-      <groupId>jakarta.ejb</groupId>
-      <artifactId>jakarta.ejb-api</artifactId>
-      <version>4.0.0</version>
-      <scope>provided</scope>
+<dependencies>
+    <dependency>
+        <groupId>jakarta.ejb</groupId>
+        <artifactId>jakarta.ejb-api</artifactId>
+        <version>4.0.0</version>
+        <scope>provided</scope>
     </dependency>
-      <dependency>
-          <groupId>jakarta.enterprise</groupId>
-          <artifactId>jakarta.enterprise.cdi-api</artifactId>
-          <version>4.1.0</version>
-      </dependency>
-      <dependency>
-      <groupId>jakarta.json.bind</groupId>
-      <artifactId>jakarta.json.bind-api</artifactId>
-      <version>2.0.0</version>
-      <scope>provided</scope>
-    </dependency><dependency>
+    <dependency>
+        <groupId>jakarta.enterprise</groupId>
+        <artifactId>jakarta.enterprise.cdi-api</artifactId>
+        <version>4.1.0</version>
+    </dependency>
+    <dependency>
+        <groupId>jakarta.json.bind</groupId>
+        <artifactId>jakarta.json.bind-api</artifactId>
+        <version>2.0.0</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>jakarta.json</groupId>
       <artifactId>jakarta.json-api</artifactId>
       <version>2.0.1</version>
       <scope>provided</scope>
-    </dependency><dependency>
+    </dependency>
+    <dependency>
       <groupId>jakarta.ws.rs</groupId>
       <artifactId>jakarta.ws.rs-api</artifactId>
       <version>3.0.0</version>
       <scope>provided</scope>
-    </dependency><dependency>
+    </dependency>
+    <dependency>
       <groupId>org.hibernate.orm</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>6.0.2.Final</version>
@@ -59,28 +62,30 @@
           <artifactId>postgresql</artifactId>
           <version>42.7.3</version>
       </dependency>
-<dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>${junit.version}</version>
-      <scope>test</scope>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
     </dependency>
-      <dependency>
+    <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-engine</artifactId>
         <version>${junit.version}</version>
         <scope>test</scope>
-      </dependency>  </dependencies>
+    </dependency>
+</dependencies>
 
-  <build>
-    <plugins>
+<build>
+<plugins>
 <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.3.2</version>
-    <configuration>
-        <failOnMissingWebXml>false</failOnMissingWebXml>
-    </configuration>
-      </plugin>    </plugins>
-  </build>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-war-plugin</artifactId>
+<version>3.3.2</version>
+<configuration>
+<failOnMissingWebXml>false</failOnMissingWebXml>
+</configuration>
+</plugin>
+</plugins>
+</build>
 </project>
