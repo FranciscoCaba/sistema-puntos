@@ -1,7 +1,6 @@
 package com.example.sistemapts.model;
 
 import jakarta.persistence.*;
-
 import java.util.Date;
 
 @Entity
@@ -13,34 +12,41 @@ public class Cliente {
     @GeneratedValue(generator = "clienteSec")
     @SequenceGenerator(name = "clienteSec", sequenceName = "cliente_sec", allocationSize = 0)
     private Integer idCliente;
+
     @Basic(optional = false)
     @Column(name = "nombre", length = 50)
     private String nombre;
+
     @Basic(optional = false)
     @Column(name = "apellido", length = 50)
     private String apellido;
+
     @Basic(optional = false)
     @Column(name = "nro_documento", length = 8)
     private String nroDocumento;
+
     @Basic(optional = false)
     @Column(name = "tipo_documento", length = 20)
     private String tipoDocumento;
+
     @Basic(optional = false)
     @Column(name = "nacionalidad", length = 20)
     private String nacionalidad;
+
     @Basic(optional = false)
     @Column(name = "email", length = 30)
     private String email;
+
     @Basic(optional = false)
     @Column(name = "telefono", length = 14)
     private String telefono;
+
     @Column(name = "fecha_nacimiento")
     @Basic(optional = true)
     @Temporal(TemporalType.DATE)
     private Date fechaNacimiento;
 
-    public Cliente() {
-    }
+    public Cliente() {};
 
     public Integer getIdCliente() {
         return idCliente;
