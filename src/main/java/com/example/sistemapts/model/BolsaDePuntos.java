@@ -1,5 +1,6 @@
 package com.example.sistemapts.model;
 
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -7,6 +8,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "bolsa_puntos")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class BolsaDePuntos {
     @Id
     @Basic(optional = false)
@@ -17,6 +19,7 @@ public class BolsaDePuntos {
 
     @ManyToOne
     @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
+    //@JsonBackReference
     private Cliente cliente;
 
     @Basic(optional = false)
@@ -37,15 +40,17 @@ public class BolsaDePuntos {
 
     @Column(name = "fecha_asignacion_puntaje")
     @Basic(optional = false)
-    private LocalDate fechaAsignacion;
+    @Temporal(TemporalType.DATE)
+    private Date fechaAsignacion;
 
     @Column(name = "fecha_caducidad_puntaje")
     @Basic(optional = false)
-    private LocalDate fechaCaducidad;
+    @Temporal(TemporalType.DATE)
+    private Date fechaCaducidad;
 
     public BolsaDePuntos() {};
 
-    public BolsaDePuntos(Cliente cliente, Integer puntajeAsignado, Integer puntajeUtilizado, Integer saldo, Integer montoDeLaOperacion, LocalDate fechaAsignacion, LocalDate fechaCaducidad) {
+    public BolsaDePuntos(Cliente cliente, Integer puntajeAsignado, Integer puntajeUtilizado, Integer saldo, Integer montoDeLaOperacion, Date fechaAsignacion, Date fechaCaducidad) {
         this.cliente = cliente;
         this.puntajeAsignado = puntajeAsignado;
         this.puntajeUtilizado = puntajeUtilizado;
@@ -103,19 +108,19 @@ public class BolsaDePuntos {
         this.montoDeLaOperacion = montoDeLaOperacion;
     }
 
-    public LocalDate getFechaAsignacion() {
+    public Date getFechaAsignacion() {
         return fechaAsignacion;
     }
 
-    public void setFechaAsignacion(LocalDate fechaAsignacion) {
+    public void setFechaAsignacion(Date fechaAsignacion) {
         this.fechaAsignacion = fechaAsignacion;
     }
 
-    public LocalDate getFechaCaducidad() {
+    public Date getFechaCaducidad() {
         return fechaCaducidad;
     }
 
-    public void setFechaCaducidad(LocalDate fechaCaducidad) {
+    public void setFechaCaducidad(Date fechaCaducidad) {
         this.fechaCaducidad = fechaCaducidad;
     }
 }

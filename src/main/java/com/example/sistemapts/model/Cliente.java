@@ -1,6 +1,10 @@
 package com.example.sistemapts.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
+import java.util.Date;
+import java.util.List;
 import java.time.LocalDate;
 
 @Entity
@@ -43,7 +47,12 @@ public class Cliente {
 
     @Column(name = "fecha_nacimiento")
     @Basic(optional = false)
-    private LocalDate fechaNacimiento;
+    @Temporal(TemporalType.DATE)
+    private Date fechaNacimiento;
+
+    @OneToMany(mappedBy = "cliente",fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<BolsaDePuntos> listaBolsas;
 
     public Cliente() {};
 
@@ -111,11 +120,19 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public LocalDate getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
+
+//    public List<BolsaDePuntos> getListaBolsas() {
+//        return listaBolsas;
+//    }
+//
+//    public void setListaBolsas(List<BolsaDePuntos> listaBolsas) {
+//        this.listaBolsas = listaBolsas;
+//    }
 }
