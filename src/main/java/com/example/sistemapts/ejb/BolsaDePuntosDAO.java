@@ -1,6 +1,6 @@
 package com.example.sistemapts.ejb;
 
-import com.example.sistemapts.model.Cliente;
+import com.example.sistemapts.model.BolsaDePuntos;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -10,7 +10,7 @@ import org.hibernate.internal.SessionImpl;
 import java.util.List;
 
 @Stateless
-public class ClienteDAO {
+public class BolsaDePuntosDAO {
     @PersistenceContext(unitName = "sistema-ptsDS")
     private EntityManager entityManager;
 
@@ -18,15 +18,15 @@ public class ClienteDAO {
         return (SessionImpl)entityManager.getDelegate();
     }
 
-    public void agregar(Cliente c) {
-        this.entityManager.persist(c);
+    public void agregar(BolsaDePuntos b) {
+        this.entityManager.persist(b);
     }
 
-    public List<Cliente> obtenerPersonas() {
-        return this.entityManager.createQuery("select c from Cliente c").getResultList();
+    public List<BolsaDePuntos> obtenerBolsas() {
+        return this.entityManager.createQuery("select b from BolsaDePuntos b").getResultList();
     }
 
-    public Cliente obtenerCliente(Integer id) {
-        return (Cliente) this.entityManager.createQuery("select c from Cliente c where c.idCliente = :id").setParameter("id", id).getSingleResult();
+    public BolsaDePuntos modificar (BolsaDePuntos b) {
+        return this.entityManager.merge(b);
     }
 }

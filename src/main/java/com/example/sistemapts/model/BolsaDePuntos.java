@@ -1,6 +1,8 @@
 package com.example.sistemapts.model;
 
 import jakarta.persistence.*;
+
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -15,7 +17,6 @@ public class BolsaDePuntos {
 
     @ManyToOne
     @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
-    //@JsonIgnore
     private Cliente cliente;
 
     @Basic(optional = false)
@@ -36,15 +37,23 @@ public class BolsaDePuntos {
 
     @Column(name = "fecha_asignacion_puntaje")
     @Basic(optional = false)
-    @Temporal(TemporalType.DATE)
-    private Date fechaAsignacion;
+    private LocalDate fechaAsignacion;
 
     @Column(name = "fecha_caducidad_puntaje")
     @Basic(optional = false)
-    @Temporal(TemporalType.DATE)
-    private Date fechaCaducidad;
+    private LocalDate fechaCaducidad;
 
     public BolsaDePuntos() {};
+
+    public BolsaDePuntos(Cliente cliente, Integer puntajeAsignado, Integer puntajeUtilizado, Integer saldo, Integer montoDeLaOperacion, LocalDate fechaAsignacion, LocalDate fechaCaducidad) {
+        this.cliente = cliente;
+        this.puntajeAsignado = puntajeAsignado;
+        this.puntajeUtilizado = puntajeUtilizado;
+        this.saldo = saldo;
+        this.montoDeLaOperacion = montoDeLaOperacion;
+        this.fechaAsignacion = fechaAsignacion;
+        this.fechaCaducidad = fechaCaducidad;
+    }
 
     public Integer getIdBolsaDePuntos() {
         return idBolsaDePuntos;
@@ -94,19 +103,19 @@ public class BolsaDePuntos {
         this.montoDeLaOperacion = montoDeLaOperacion;
     }
 
-    public Date getFechaAsignacion() {
+    public LocalDate getFechaAsignacion() {
         return fechaAsignacion;
     }
 
-    public void setFechaAsignacion(Date fechaAsignacion) {
+    public void setFechaAsignacion(LocalDate fechaAsignacion) {
         this.fechaAsignacion = fechaAsignacion;
     }
 
-    public Date getFechaCaducidad() {
+    public LocalDate getFechaCaducidad() {
         return fechaCaducidad;
     }
 
-    public void setFechaCaducidad(Date fechaCaducidad) {
+    public void setFechaCaducidad(LocalDate fechaCaducidad) {
         this.fechaCaducidad = fechaCaducidad;
     }
 }
