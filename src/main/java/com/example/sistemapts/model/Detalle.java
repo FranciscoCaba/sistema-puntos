@@ -1,8 +1,6 @@
 package com.example.sistemapts.model;
 import jakarta.persistence.*;
 
-import java.util.Date;
-
 @Entity
 @Table(name = "uso_puntos_detalle")
 public class Detalle {

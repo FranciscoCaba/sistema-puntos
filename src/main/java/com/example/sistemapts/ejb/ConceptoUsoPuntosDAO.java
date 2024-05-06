@@ -1,7 +1,5 @@
 package com.example.sistemapts.ejb;
 
-import com.example.sistemapts.model.BolsaDePuntos;
-import com.example.sistemapts.model.Cliente;
 import com.example.sistemapts.model.ConceptoUsoDePuntos;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;

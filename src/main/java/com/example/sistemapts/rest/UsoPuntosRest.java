@@ -75,7 +75,7 @@ public class UsoPuntosRest {
                 }
             }
 
-            return Response.ok(suma).build();
+            return Response.ok(cabecera).build();
         }else{
             return Response.status(Response.Status.BAD_REQUEST).entity("Saldo Insuficiente").build();
         }
