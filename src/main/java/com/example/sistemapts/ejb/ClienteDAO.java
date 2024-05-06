@@ -59,4 +59,8 @@ public class ClienteDAO {
                 .setParameter("fechaNacimiento", fechaNacimiento)
                 .getResultList();
     }
+
+    public Cliente obtenerCliente(Integer id) {
+        return (Cliente) this.entityManager.createQuery("select c from Cliente c where c.idCliente = :id").setParameter("id", id).getSingleResult();
+    }
 }
