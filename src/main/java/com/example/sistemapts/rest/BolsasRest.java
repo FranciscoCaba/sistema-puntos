@@ -70,8 +70,14 @@ public class BolsasRest {
 
     @GET
     @Path("/")
-    public Response lista() {
-        return Response.ok(bolsasDAO.obtenerBolsas()).build();
+    public Response lista(@QueryParam("cliente") Integer cliente, @QueryParam("rango") Integer rango) {
+        return Response.ok(bolsasDAO.obtenerBolsas(cliente, rango)).build();
+    }
+
+    @GET
+    @Path("/vencimiento")
+    public Response lista(@QueryParam("dias") Integer dias) {
+        return Response.ok(bolsasDAO.obtenerBolsasAVencer(dias)).build();
     }
 
     @PUT

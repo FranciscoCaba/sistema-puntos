@@ -83,7 +83,7 @@ public class UsoPuntosRest {
 
     @GET
     @Path("/")
-    public Response lista() {
-        return Response.ok(conceptoDAO.obtenerConceptos()).build();
+    public Response lista(@QueryParam("conceptoUso") Integer concepto, @QueryParam("fechaUso") String fecha, @QueryParam("cliente") Integer cliente) {
+        return Response.ok(cabeceraDAO.obtenerUsos(concepto, fecha, cliente)).build();
     }
 }
