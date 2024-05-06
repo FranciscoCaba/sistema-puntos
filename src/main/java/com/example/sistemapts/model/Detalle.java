@@ -14,18 +14,24 @@ public class Detalle {
     private Integer idDetalle;
 
     @ManyToOne
-    @JoinColumn(name = "id_uso_puntos_cabecera", referencedColumnName = "id_uso_puntos_cabecera")
+    @JoinColumn(name = "id_cabecera", referencedColumnName = "id_uso_cabecera")
     private Cabecera cabecera;
 
     @ManyToOne
-    @JoinColumn(name = "id_bolsa_pts", referencedColumnName = "id_bolsa_pts")
+    @JoinColumn(name = "id_bolsa_puntos_utilizada", referencedColumnName = "id_bolsa_pts")
     private BolsaDePuntos bolsaDePuntos;
 
     @Basic(optional = false)
-    @JoinColumn(name = "puntaje_utilizado")
+    @Column(name = "puntaje_utilizado")
     private Integer puntajeUtilizado;
 
     public Detalle() {};
+
+    public Detalle(Cabecera cabecera, BolsaDePuntos bolsaDePuntos, Integer puntajeUtilizado) {
+        this.cabecera = cabecera;
+        this.bolsaDePuntos = bolsaDePuntos;
+        this.puntajeUtilizado = puntajeUtilizado;
+    }
 
     public Integer getIdDetalle() {
         return idDetalle;

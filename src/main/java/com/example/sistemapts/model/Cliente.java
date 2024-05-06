@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "cliente")
@@ -50,7 +49,7 @@ public class Cliente {
     @Temporal(TemporalType.DATE)
     private Date fechaNacimiento;
 
-    @OneToMany(mappedBy = "cliente",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cliente",fetch = FetchType.EAGER)
     @JsonIgnore
     private List<BolsaDePuntos> listaBolsas;
 
@@ -128,11 +127,11 @@ public class Cliente {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-//    public List<BolsaDePuntos> getListaBolsas() {
-//        return listaBolsas;
-//    }
-//
-//    public void setListaBolsas(List<BolsaDePuntos> listaBolsas) {
-//        this.listaBolsas = listaBolsas;
-//    }
+    public List<BolsaDePuntos> getListaBolsas() {
+        return listaBolsas;
+    }
+
+    public void setListaBolsas(List<BolsaDePuntos> listaBolsas) {
+        this.listaBolsas = listaBolsas;
+    }
 }

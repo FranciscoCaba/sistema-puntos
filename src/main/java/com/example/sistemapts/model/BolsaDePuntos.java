@@ -1,14 +1,11 @@
 package com.example.sistemapts.model;
 
-import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
 @Table(name = "bolsa_puntos")
-//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class BolsaDePuntos {
     @Id
     @Basic(optional = false)
@@ -19,7 +16,6 @@ public class BolsaDePuntos {
 
     @ManyToOne
     @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
-    //@JsonBackReference
     private Cliente cliente;
 
     @Basic(optional = false)
