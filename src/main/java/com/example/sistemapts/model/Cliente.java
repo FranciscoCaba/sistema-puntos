@@ -1,7 +1,7 @@
 package com.example.sistemapts.model;
 
 import jakarta.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "cliente")
@@ -42,9 +42,8 @@ public class Cliente {
     private String telefono;
 
     @Column(name = "fecha_nacimiento")
-    @Basic(optional = true)
-    @Temporal(TemporalType.DATE)
-    private Date fechaNacimiento;
+    @Basic(optional = false)
+    private LocalDate fechaNacimiento;
 
     public Cliente() {};
 
@@ -112,11 +111,11 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public Date getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 }
